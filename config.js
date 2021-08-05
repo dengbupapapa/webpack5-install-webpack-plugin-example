@@ -80,7 +80,11 @@ function configExec(entry, outputFilename) {
             ]
         },
         mode: "production",
-        plugins: [new InstallPlugin({})]
+        plugins: [new InstallPlugin({
+            dependencies: {
+                peer: true,
+            }
+        })]
     }, (err, stats) => {
         if (err || stats.hasErrors()) {
             console.log(err, stats.compilation.errors)
